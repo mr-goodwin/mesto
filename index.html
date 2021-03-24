@@ -17,13 +17,68 @@
 <main>
 
   <section class="profile">
-    <img class="profile__ava" alt="Аватарка" src="./image/ava.jpg">
+    <img class="profile__ava" alt="Здесь должна быть аватарка, но могла быть и Ваша реклама! =)" src="./image/ava.jpg">
+      <div class="profile__data">
+        <div class="profile__name">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit"></button>
+        </div>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button type="button" class="profile__addbutton"></button>
 
-    <h1 class="profile__title">Жак-Ив-Кусто</h1>
-    <p class="profile__subtitle">Исследователь океана</p>
+  </section >
+
+  <section class="elements">
+    <article class="card">
+      <img class="card__image" src="./image/karachaevo.jpg" alt="Карачаевск - фото храма">
+      <div class="card__caption">
+        <h2 class="card__title">Карачаевск</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="card__image" src="./image/elbrus.jpg" alt="Эльбрус - фото горной вершины вдали">
+      <div class="card__caption">
+        <h2 class="card__title">Гора Эльбрус</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="card__image" src="./image/dombay.jpg" alt="Домбай - заснеженные горы">
+      <div class="card__caption">
+        <h2 class="card__title">Домбай</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="card__image" src="./image/elbrus.jpg" alt="Эльбрус - фото горной вершины вдали">
+      <div class="card__caption">
+        <h2 class="card__title">Гора Эльбрус</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="card__image" src="./image/dombay.jpg" alt="Домбай - заснеженные горы">
+      <div class="card__caption">
+        <h2 class="card__title">Домбай</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="card__image" src="./image/karachaevo.jpg" alt="Карачаевск - фото храма">
+      <div class="card__caption">
+        <h2 class="card__title">Карачаево-Черкесия</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+
   </section>
-
-  <section class="elements"></section>
 
 </main>
 
@@ -33,7 +88,19 @@
   <p class="footer__copy">© 2021 Mesto Russia</p>
 </footer>
 
-<div class="popup"></div>
+<div class="popup">
+  <div class="popup__overlay"></div>
+  <div class="popup__content">
+    <h2 class="popup__title">Редактировать профиль</h2>
+    <form action="#" class="popup__inputs">
+      <input type="text" placeholder="profile-title" name="popup__proftitle" class="popup__input popup__input_type_proftitle" autocomplete="off">
+      <input type="text" placeholder="profile-subtitle" name="popup__profsubtitle" class="popup__input popup__input_type_profsubtitle" autocomplete="off">
+      <button type="submit" class="popup__save" aria-label="Кнопка-Сохранить">Сохранить</button>
+    </form>
+    <button type="button" class="popup__close" aria-label="Кнопка-Закрыть"></button>
+  </div>
+</div>
+
 <script src="./scripts/index.js"></script>
 
 </body>

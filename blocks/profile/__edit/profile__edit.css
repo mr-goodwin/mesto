@@ -1,0 +1,12 @@
+.profile__edit {
+  background-image: url(../../../image/pen.svg);
+    background-color: #000;
+    border: 1px solid #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    margin-left: 18px;
+    transition: .3s;
+}

@@ -1,0 +1,14 @@
+.popup__save {
+  max-width: 358px;
+  min-width: 238px;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+}
+
