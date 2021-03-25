@@ -4,3 +4,9 @@
   margin-left: 30px;
   margin-right: auto;
 }
+
+@media screen and (max-width: 639px) {
+  .profile__data {
+    margin: 25px 0 36px 0;
+  }
+}

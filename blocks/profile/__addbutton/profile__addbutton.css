@@ -10,3 +10,16 @@
   cursor: pointer;
   transition: .3s;
 }
+
+@media screen and (max-width: 919px) {
+  .profile__addbutton {
+    margin-left: 25px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .profile__addbutton {
+    width: 282px;
+    margin-left: 0;
+  }
+}

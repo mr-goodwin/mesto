@@ -7,3 +7,12 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 639px) {
+  .footer__copy {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0 auto;
+    width: 282px;
+  }
+}

@@ -9,3 +9,19 @@
   overflow: hidden;
   max-width: 400px;
 }
+
+@media screen and (max-width: 919px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: 310px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .profile__title {
+    margin-left: 28px;
+    max-width: 226px;
+  }
+}
+

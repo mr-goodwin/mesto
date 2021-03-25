@@ -4,3 +4,17 @@
   max-width: 880px;
   margin: 0 auto 50px;
 }
+
+@media screen and (max-width: 919px) {
+  .profile {
+    width: 581px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .profile {
+    flex-direction: column;
+    width: 282px;
+    margin-bottom: 36px;
+  }
+}
