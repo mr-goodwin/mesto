@@ -12,3 +12,7 @@
   border: none;
 }
 
+.popup__save:hover {
+  opacity: 0.8;
+  transition: 2s;
+}

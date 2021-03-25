@@ -8,5 +8,9 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  transition: .3s;
+}
+
+.card__like:hover {
+  opacity: 0.6;
+  transition: 2s;
 }

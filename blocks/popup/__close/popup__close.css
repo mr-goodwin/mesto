@@ -12,6 +12,11 @@
   outline: none;
 }
 
+.popup__close:hover {
+  opacity: 0.6;
+  transition: 2s;
+}
+
 @media screen and (max-width: 780px) {
   .popup__close {
     right: -3px;
