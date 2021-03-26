@@ -12,6 +12,14 @@
   border: none;
 }
 
+@media screen and (max-width: 780px) {
+  .popup__save {
+    font-size: 14px;
+    line-height: 17px;
+    height: 46px;
+  }
+}
+
 .popup__save:hover {
   opacity: 0.8;
   transition: 2s;

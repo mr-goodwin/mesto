@@ -1,13 +1,8 @@
 .popup__content {
   box-sizing: border-box;
   position: relative;
-  margin: 12% auto;
-  /* left: 50%;
-  transform: translateX(-50%);
-  top: 22%; */
   max-width: 430px;
   min-width: 282px;
-  max-height: 330px;
   min-height: 320px;
   background-color: white;
   border-radius: 10px;
