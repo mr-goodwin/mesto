@@ -1,9 +1,10 @@
 .popup__content {
   box-sizing: border-box;
-  position: absolute;
-  left: 50%;
+  position: relative;
+  margin: 12% auto;
+  /* left: 50%;
   transform: translateX(-50%);
-  top: 22%;
+  top: 22%; */
   max-width: 430px;
   min-width: 282px;
   max-height: 330px;
@@ -20,6 +21,12 @@
 @media screen and (max-width: 780px) {
   .popup__content {
     padding: 25px 22px;
-    top: 14%;
   }
 }
+
+@media screen and (max-width: 469px) {
+  .popup__content {
+    margin: 41% 9px;
+  }
+}
+
