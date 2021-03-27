@@ -5,7 +5,7 @@ let profileEdit = document.querySelector('.profile__edit');
 let popupClose = document.querySelector('.popup__close');
 let profileTitle = document.querySelector('.profile__title');
 let profileSubtitle = document.querySelector('.profile__subtitle');
-let popupContent = document.querySelector('.popup__content');
+let popupInputs = document.querySelector('.popup__inputs');
 
 //по клику на ЭДИТ надо открыть попап (дописать класс) //функция открытия попапа
 function openPopup() {
@@ -33,4 +33,4 @@ profileEdit.addEventListener('click', openPopup);
 popupClose.addEventListener('click', closePopup);
 
 //сохраняем через formSubmitHandler при нажатии "Сохранить"
-popupContent.addEventListener('submit', formSubmitHandler);
+popupInputs.addEventListener('submit', formSubmitHandler);
