@@ -2,26 +2,26 @@
 // ПЕРЕМЕННЫЕ
 //-------------------------------------------------------------------------------------------
 
-const popupEdit = document.querySelector('.popup__edit'); // переменная для кнопки открытия попап редактирования профиля (на главной странице)
+const popupEdit = document.querySelector('.popup_type_edit'); // переменная для кнопки открытия попап редактирования профиля (на главной странице)
   const profTitle = document.querySelector('.popup__input_type_proftitle');
   const profSubtitle = document.querySelector('.popup__input_type_profsubtitle');
 const profileEdit = document.querySelector('.profile__edit');
 const popupClose = document.querySelector('.popup__close_edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const popupInputsProfile = document.querySelector('.popup__inputs_profile');
+const popupInputsProfile = document.querySelector('.popup__inputs_type_profile');
 
-const popupInputsAdd = document.querySelector('.popup__inputs_add');
+const popupInputsAdd = document.querySelector('.popup__inputs_type_add');
 
 const addButton = document.querySelector('.profile__add-button'); // переменная для кнопки открытия попап добавления новой карточки (на главной странице)
-const popupAdd = document.querySelector('.popup__add'); // второй попап (добавления карточки)
+const popupAdd = document.querySelector('.popup_type_add'); // второй попап (добавления карточки)
   const closeAddPopup = document.querySelector('.popup__close_add');
   const addCardButton = document.querySelector('.popup__save_add');
   const nameNewCard = document.querySelector('.popup__input_type_name');
   const linkNewCard = document.querySelector('.popup__input_type_url');
 
 
-  const popupImg = document.querySelector('.popup__picture'); // третий попап (увеличенного просмотра фото)
+  const popupImg = document.querySelector('.popup_type_picture'); // третий попап (увеличенного просмотра фото)
   const closePicturePopup = document.querySelector('.popup__close_picture'); // кнопка закрытия третьего попапа
 
 const cardTemplate = document.querySelector('#template-card').content; // переменная содержимого тэга template

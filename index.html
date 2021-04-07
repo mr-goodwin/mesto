@@ -51,10 +51,10 @@
 </template>
 
 
-<article class="popup popup__edit">
+<article class="popup popup_type_edit">
   <div class="popup__content">
     <h2 class="popup__title">Редактировать профиль</h2>
-    <form action="#" class="popup__inputs_profile" name="popup-inputs">
+    <form action="#" class="popup__inputs popup__inputs_type_profile" name="popup-inputs">
       <input type="text" placeholder="Имя Фамилия" name="popup-input-proftitle" class="popup__input popup__input_type_proftitle" autocomplete="off">
       <input type="text" placeholder="Описание" name="popup-input-profsubtitle" class="popup__input popup__input_type_profsubtitle" autocomplete="off">
       <button type="submit" class="popup__save popup__save_edit" aria-label="Кнопка-Сохранить-Попап-Эдит">Сохранить</button>
@@ -63,10 +63,10 @@
   </div>
 </article>
 
-<article class="popup popup__add">
+<article class="popup popup_type_add">
   <div class="popup__content">
     <h2 class="popup__title">Новое место</h2>
-    <form action="#" class="popup__inputs_add" name="popup-add">
+    <form action="#" class="popup__inputs popup__inputs_type_add" name="popup-add">
       <input type="text" placeholder="Название" name="popup-input-name" class="popup__input popup__input_type_name" autocomplete="off">
       <input type="text" placeholder="Ссылка на картинку" name="popup-input-url" class="popup__input popup__input_type_url" autocomplete="off">
       <button type="submit" class="popup__save popup__save_add" aria-label="Кнопка-Создать-Карточку">Создать</button>
@@ -75,9 +75,9 @@
   </div>
 </article>
 
-<article class="popup popup__picture">
+<article class="popup popup_type_picture">
   <div class="popup__content-picture">
-    <img class="popup__picture-img" src="#">
+    <img class="popup__picture-img" src="#" alt="#">
     <p class="popup__picture-description"></p>
     <button type="button" class="popup__close popup__close_picture" aria-label="Кнопка-Закрыть-Попап-Пикче"></button>
   </div>
