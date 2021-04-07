@@ -83,8 +83,8 @@ initialCards.forEach(function (before) {
   const trashedButton = cardElement.querySelector('.card__in-trash');
   const likeButton = cardElement.querySelector('.card__like');
   const imgButton = cardElement.querySelector('.card__image');
-  const izobrajenieVpopap = popupImg.querySelector('.popup__picture-img');
-  const nadpisVpopap = popupImg.querySelector('.popup__picture-description');
+  const imgInPopup = popupImg.querySelector('.popup__picture-img');
+  const descriptionInPopap = popupImg.querySelector('.popup__picture-description');
 
   cardElement.querySelector('.card__image').src = before.link;
   cardElement.querySelector('.card__image').alt = before.name;
@@ -92,8 +92,8 @@ initialCards.forEach(function (before) {
   trashedButton.addEventListener('click', CardInTrash);
   likeButton.addEventListener('click', cardLike);
   imgButton.addEventListener('click', () => {
-    izobrajenieVpopap.src = before.link;
-    nadpisVpopap.textContent = before.name;
+    imgInPopup.src = before.link;
+    descriptionInPopap.textContent = before.name;
     openPopupImg();
   });
   elementsContainer.append(cardElement);
@@ -124,8 +124,8 @@ function formAddingCard (evt) {
   const trashedButton = cardElement.querySelector('.card__in-trash');
   const likeButton = cardElement.querySelector('.card__like');
   const imgButton = cardElement.querySelector('.card__image');
-  const izobrajenieVpopap = popupImg.querySelector('.popup__picture-img');
-  const nadpisVpopap = popupImg.querySelector('.popup__picture-description');
+  const imgInPopup = popupImg.querySelector('.popup__picture-img');
+  const descriptionInPopap = popupImg.querySelector('.popup__picture-description');
 
   cardElement.querySelector('.card__image').src = linkNewCard.value;
   cardElement.querySelector('.card__image').alt = nameNewCard.value;
@@ -133,8 +133,8 @@ function formAddingCard (evt) {
   trashedButton.addEventListener('click', CardInTrash);
   likeButton.addEventListener('click', cardLike);
   imgButton.addEventListener('click', () => {
-    izobrajenieVpopap.src = linkNewCard.value;
-    nadpisVpopap.textContent = nameNewCard.value;
+    imgInPopup.src = linkNewCard.value;
+    descriptionInPopap.textContent = nameNewCard.value;
     openPopupImg();
   });
   elementsContainer.prepend(cardElement);
