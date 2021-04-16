@@ -1,7 +1,3 @@
-//-------------------------------------------------------------------------------------------
-// ПЕРЕМЕННЫЕ
-//-------------------------------------------------------------------------------------------
-
 const popupEdit = document.querySelector('.popup_type_edit'); // переменная для кнопки открытия попап редактирования профиля (на главной странице)
 const profTitle = document.querySelector('.popup__input_type_proftitle');
 const profSubtitle = document.querySelector('.popup__input_type_profsubtitle');
@@ -22,9 +18,6 @@ const popupInputsAdd = document.querySelector('.popup__inputs_type_add'); // Ф�
 const nameNewCard = document.querySelector('.popup__input_type_name'); // Инпуты с данными этой формы (1/2)
 const linkNewCard = document.querySelector('.popup__input_type_url');// Инпуты с данными этой формы (2/2)
 
-//-------------------------------------------------------------------------------------------
-// ФУНКЦИИ
-//-------------------------------------------------------------------------------------------
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
