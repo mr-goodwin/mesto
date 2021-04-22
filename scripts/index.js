@@ -29,6 +29,8 @@ function handleEditProfile(evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupKeyEsc);
+  document.addEventListener('click', closePopupOverlay);
 }
 
 function closePopup(popup) {
@@ -84,6 +86,19 @@ function handleAddCard(evt) {
   elementsContainer.prepend(cardElement);
   popupInputsAdd.reset();
   closePopup(popupAdd);
+}
+
+function closePopupKeyEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupEsc = document.querySelector('.popup_opened');
+    closePopup(popupEsc);
+  }
+}
+
+function closePopupOverlay(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
 }
 
 //-------------------------------------------------------------------------------------------
