@@ -41,7 +41,7 @@ function setCustomError(input) {
     const current = input.value.length;
     const min = input.getAttribute('minlength');
     const max = input.getAttribute('maxlength');
-    input.setCustomValidity(`Строка имеет неверную длину. Введено ${current} символов, а должно быть от ${min} до ${max} !`);
+    input.setCustomValidity(`Строка имеет неверную длину. Введено ${current} символов, а должно быть от ${min} до ${max} !!!`);
   }
 
   if (validity.typeMismatch) {
@@ -69,4 +69,4 @@ function setSubmitButtonState(form) {
   }
 }
 
-enableValidation()
+enableValidation();

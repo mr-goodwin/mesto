@@ -28,6 +28,7 @@ function handleEditProfile(evt) {
 }
 
 function openPopup(popup) {
+  enableValidation();
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupKeyEsc);
   document.addEventListener('click', closePopupOverlay);
@@ -37,7 +38,7 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-//функция, которая создаёт DOM-элемент с карточкой и возращает его.
+//функция, которая создаёт DOM-элемент с карточкой и возвращает его.
 function createCard(cardData) {
   const cardElement = cardElementTemplate.cloneNode(true);
   const trashedButton = cardElement.querySelector('.card__in-trash');
