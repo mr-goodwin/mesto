@@ -54,14 +54,42 @@
 <article class="popup popup_type_edit">
   <div class="popup__content">
     <h2 class="popup__title">Редактировать профиль</h2>
-    <form action="#" class="popup__inputs popup__inputs_type_profile" name="popup-inputs">
-      <input type="text" placeholder="Имя Фамилия" name="popup-input-proftitle" class="popup__input popup__input_type_proftitle"
-      autocomplete="off"  minlength="2" maxlength="40">
-      <span class="popup__error popup__error_active" id="place-input-error"></span>
-      <input type="text" placeholder="Описание" name="popup-input-profsubtitle" class="popup__input popup__input_type_profsubtitle"
-      autocomplete="off"  minlength="2" maxlength="200">
-      <span class="popup__error popup__error_active" id="place-input-error"></span>
+    <form action="#"
+    class="popup__inputs popup__inputs_type_profile"
+    name="popup-inputs"
+    autocomplete="off"
+    novalidate>
+
+      <section class="popup-input-section">
+
+        <input type="text"
+        placeholder="Имя Фамилия"
+        name="popup-input-proftitle"
+        class="popup__input popup__input_type_proftitle"
+        minlength="2"
+        maxlength="40"
+        required>
+
+        <span class="popup__error"></span>
+
+      </section>
+
+      <section class="popup-input-section">
+
+        <input type="text"
+        placeholder="Описание"
+        name="popup-input-profsubtitle"
+        class="popup__input popup__input_type_profsubtitle"
+        minlength="2"
+        maxlength="200"
+        required>
+
+        <span class="popup__error"></span>
+
+      </section>
+
       <button type="submit" class="popup__save popup__save_edit" aria-label="Кнопка-Сохранить-Попап-Эдит">Сохранить</button>
+
     </form>
     <button type="button" class="popup__close popup__close_edit" aria-label="Кнопка-Закрыть-Попап-Эдит"></button>
   </div>
@@ -69,13 +97,43 @@
 
 <article class="popup popup_type_add">
   <div class="popup__content">
+
     <h2 class="popup__title">Новое место</h2>
-    <form action="#" class="popup__inputs popup__inputs_type_add" name="popup-add">
-      <input type="text" name="popup-input-name" placeholder="Название" class="popup__input popup__input_type_name" autocomplete="off" minlength="2" maxlength="30" required>
-      <span class="popup__error popup__error_active" id="place-input-error"></span>
-      <input type="url" placeholder="Ссылка на картинку" name="popup-input-url" class="popup__input popup__input_type_url" autocomplete="off" required>
-      <span class="popup__error popup__error_active" id="place-input-error"></span>
-      <button type="submit" class="popup__save popup__save_add popup__save_add_invalid" aria-label="Кнопка-Создать-Карточку">Создать</button>
+
+    <form action="#"
+    class="popup__inputs popup__inputs_type_add"
+    name="popup-add"
+    autocomplete="off"
+    novalidate>
+
+      <section class="popup-input-section">
+
+        <input type="text"
+        name="popup-input-name"
+        placeholder="Название"
+        class="popup__input popup__input_type_name"
+        minlength="1"
+        maxlength="30"
+        required>
+
+        <span class="popup__error"></span>
+
+      </section>
+
+      <section class="popup-input-section">
+
+        <input type="url"
+        placeholder="Ссылка на картинку"
+        name="popup-input-url"
+        class="popup__input popup__input_type_url"
+        required>
+
+        <span class="popup__error"></span>
+
+      </section>
+
+      <button type="submit" class="popup__save popup__save_add" aria-label="Кнопка-Создать-Карточку">Создать</button>
+
     </form>
     <button type="button" class="popup__close popup__close_add" aria-label="Кнопка-Закрыть-Попап-Эдд"></button>
   </div>

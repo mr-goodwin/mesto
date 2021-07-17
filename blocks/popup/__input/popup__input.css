@@ -1,7 +1,7 @@
 .popup__input {
   max-width: 356px;
   min-width: 236px;
-  width: 99%;
+  /* width: 99%; */
   padding: 0 2px;
   margin-bottom: 0;
   height: 40px;
@@ -14,16 +14,20 @@
   font-weight: normal;
 }
 
+.popup__input:focus {
+  outline: none;
+}
+
 .popup__input:last-of-type {
   margin-bottom: 0;
 }
 
 .popup__input:invalid {
-  border: 1px solid red; /* красная рамка для некорректных данных */
+  border-bottom: 1px solid red; /* красная рамка для некорректных данных */
 }
 
 .popup__input:valid {
-  border: 1px solid green; /* зелёная - для корректных */
+  border-bottom: 1px solid green; /* зелёная - для корректных */
 }
 
 @media screen and (max-width: 780px) {

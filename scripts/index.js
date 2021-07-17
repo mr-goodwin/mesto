@@ -28,7 +28,7 @@ function handleEditProfile(evt) {
 }
 
 function openPopup(popup) {
-  enableValidation();
+  //enableValidation();
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupKeyEsc);
   document.addEventListener('click', closePopupOverlay);

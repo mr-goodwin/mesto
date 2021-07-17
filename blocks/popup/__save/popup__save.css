@@ -24,3 +24,9 @@
   opacity: 0.8;
   transition: 2s;
 }
+
+.popup__save:disabled {
+  background-color: white;
+  border: solid 1px;
+  color: #E5E5E5;
+}
