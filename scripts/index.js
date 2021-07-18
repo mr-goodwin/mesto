@@ -1,11 +1,11 @@
 const popupEdit = document.querySelector('.popup_type_edit'); // переменная для кнопки открытия попап редактирования профиля (на главной странице)
-const profTitle = document.querySelector('.popup__input_type_proftitle');
-const profSubtitle = document.querySelector('.popup__input_type_profsubtitle');
+const profileName = document.querySelector('.popup__input_type_profile-name');
+const profileDescription = document.querySelector('.popup__input_type_profile-description');
 const profileEdit = document.querySelector('.profile__edit');
 const popupClose = document.querySelector('.popup__close_edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const popupInputsProfile = document.querySelector('.popup__inputs_type_profile');
+const popupFormProfile = document.querySelector('.popup__form_type_profile');
 const addButton = document.querySelector('.profile__add-button'); // переменная для кнопки открытия попап добавления новой карточки (на главной странице)
 const popupAdd = document.querySelector('.popup_type_add'); // второй попап (добавления карточки)
 const closeAddPopup = document.querySelector('.popup__close_add'); //кнопка закрытия второго попапа (добавления карточки)
@@ -14,7 +14,7 @@ const closePicturePopup = document.querySelector('.popup__close_picture'); // к
 const cardTemplate = document.querySelector('#template-card').content; // переменная содержимого тэга template
 const cardElementTemplate = cardTemplate.querySelector('.card'); // разметка дефолтной карточки в теплите
 const elementsContainer = document.querySelector('.elements'); // переменная блока с карточками (куда будем вставлять готовые)
-const popupInputsAdd = document.querySelector('.popup__inputs_type_add'); // Форма добавления новой карточки.
+const popupFormAdd = document.querySelector('.popup__form_type_add'); // Форма добавления новой карточки.
 const nameNewCard = document.querySelector('.popup__input_type_name'); // Инпуты с данными этой формы (1/2)
 const linkNewCard = document.querySelector('.popup__input_type_url');// Инпуты с данными этой формы (2/2)
 const imgInPopup = popupImg.querySelector('.popup__picture-img');
@@ -22,8 +22,8 @@ const descriptionInPopup = popupImg.querySelector('.popup__picture-description')
 
 function handleEditProfile(evt) {
   evt.preventDefault();
-  profileTitle.textContent = profTitle.value;
-  profileSubtitle.textContent = profSubtitle.value;
+  profileTitle.textContent = profileName.value;
+  profileSubtitle.textContent = profileDescription.value;
   closePopup(popupEdit);
 }
 
@@ -85,7 +85,7 @@ function handleAddCard(evt) {
   }
   const cardElement = createCard(cardData);
   elementsContainer.prepend(cardElement);
-  popupInputsAdd.reset();
+  popupFormAdd.reset();
   closePopup(popupAdd);
 }
 
@@ -107,19 +107,19 @@ function closePopupOverlay(evt) {
 //-------------------------------------------------------------------------------------------
 
 profileEdit.addEventListener('click', function () {
-  profTitle.value = profileTitle.textContent;
-  profSubtitle.value = profileSubtitle.textContent;
+  profileName.value = profileTitle.textContent;
+  profileDescription.value = profileSubtitle.textContent;
   openPopup(popupEdit);
 });
 
 popupClose.addEventListener('click', ()=> closePopup(popupEdit));
 
-popupInputsProfile.addEventListener('submit', handleEditProfile);
+popupFormProfile.addEventListener('submit', handleEditProfile);
 
 addButton.addEventListener('click', ()=> openPopup(popupAdd));
 
 closeAddPopup.addEventListener('click', ()=> closePopup(popupAdd));
 
-popupInputsAdd.addEventListener('submit', handleAddCard);
+popupFormAdd.addEventListener('submit', handleAddCard);
 
 closePicturePopup.addEventListener('click', ()=> closePopup(popupImg));

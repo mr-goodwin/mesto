@@ -1,19 +1,20 @@
+// отобразить инпут ERORR
 const showInputError = (inputElement, errorMessage) => {
   console.log(inputElement.name, errorMessage);
-  const formSectionElement = inputElement.closest('.popup-input-section');
-  const errorElement = formSectionElement.querySelector('.popup__error');
+  const formSectionElement = inputElement.closest(".popup-input-section");
+  const errorElement = formSectionElement.querySelector(".popup__error");
 
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__error_active');
+  errorElement.classList.add("popup__error_active");
 };
 
+// скрыть инпут ERORR
 const hideInputError = (inputElement) => {
+  const formSectionElement = inputElement.closest(".popup-input-section");
+  const errorElement = formSectionElement.querySelector(".popup__error");
 
-  const formSectionElement = inputElement.closest('.popup-input-section');
-  const errorElement = formSectionElement.querySelector('.popup__error');
-
-  errorElement.textContent = '';
-  errorElement.classList.remove('popup__error_active');
+  errorElement.textContent = "";
+  errorElement.classList.remove("popup__error_active");
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -24,30 +25,33 @@ const checkInputValidity = (formElement, inputElement) => {
     showInputError(inputElement, errorMessage);
   } else {
     hideInputError(inputElement);
-  };
+  }
 };
-
 
 const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   const findAtLeastOneNotValid = (inputElement) => !inputElement.validity.valid;
   const hasNotValidInput = inputList.some(findAtLeastOneNotValid);
 
   if (hasNotValidInput) {
-    buttonElement.setAttribute('disabled', true);
+    buttonElement.setAttribute("disabled", true);
     buttonElement.classList.add(inactiveButtonClass);
   } else {
-    buttonElement.removeAttribute('disabled');
+    buttonElement.removeAttribute("disabled");
     buttonElement.classList.remove(inactiveButtonClass);
   }
 };
 
-const setEventListeners = (formElement, inputSelector, submitButtonSelector) => {
+const setEventListeners = (
+  formElement,
+  inputSelector,
+  submitButtonSelector
+) => {
   // стандартное навешивание слушателя нажатия 'SUBMIT' (убираем стандартное поведение при нажатии)
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
-  }
+  };
 
-  formElement.addEventListener('submit', handleFormSubmit);
+  formElement.addEventListener("submit", handleFormSubmit);
 
   // находим внутри формы все инпуты и делаем из них массив
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
@@ -55,48 +59,41 @@ const setEventListeners = (formElement, inputSelector, submitButtonSelector) => 
   // находим кнопку сохранения
   const buttonElement = formElement.querySelector(submitButtonSelector);
 
-
-  const inputListIterstor = inputElement => {
-
+  const inputListIterator = (inputElement) => {
     const handleInput = () => {
       checkInputValidity(formElement, inputElement);
-
       toggleButtonState(inputList, buttonElement);
-    //console.log(evt.target.name);
-  }
+      //console.log(evt.target.name);
+    };
 
-    inputElement.addEventListener('input', handleInput);
-}
+    inputElement.addEventListener("input", handleInput);
+  };
 
   // проходимся по каждому элементу и навешиваем на каждый из них слушатель 'input'
-  inputList.forEach(inputListIterstor);
+  inputList.forEach(inputListIterator);
 
-toggleButtonState(inputList, buttonElement);
-
+  toggleButtonState(inputList, buttonElement);
 };
 
-
 // находим все формы, превращаем их в массив, после чего перебираем его и убиваем дефолтное поведение при нажатии (отправке)
-const enableValidation = ({formSelector, inputSelector, submitButtonSelector}) => {
-
+const enableValidation = ({
+  formSelector,
+  inputSelector,
+  submitButtonSelector,
+}) => {
   const formElements = document.querySelectorAll(formSelector);
   const formList = Array.from(formElements);
 
   formList.forEach((formElement) => {
     setEventListeners(formElement, inputSelector, submitButtonSelector);
-    });
+  });
 };
 
 enableValidation({
-  formSelector: '.popup__inputs',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_add_invalid',
-  //inputErrorClass: 'popup__input_type_error',
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save",
+  inactiveButtonClass: "popup__save_add_invalid",
+  //inputErrorClass: 'popup__error',
   //errorClass: 'popup__error_visible'
 });
-
-// enableValidation({
-//   inputErrorClass: 'popup__input_type_error',
-//   errorClass: 'popup__error_visible'
-// });

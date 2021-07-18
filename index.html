@@ -1,155 +1,153 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Проект "Место-Россия"</title>
-</head>
+  </head>
 
-<body class="page">
+  <body class="page">
 
-<header class="header">
-  <a href="" target="_self" class="header__link"><div class="logo"></div></a>
-</header>
+    <header class="header">
+      <a href="" target="_self" class="header__link"><div class="logo"></div></a>
+    </header>
 
-<main>
+    <main>
 
-  <section class="profile">
-    <img class="profile__ava" alt="Здесь должна быть аватарка, но могла быть и Ваша реклама! =)" src="./image/ava.jpg">
-      <div class="profile__data">
-        <div class="profile__name">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button type="button" class="profile__edit"></button>
+      <section class="profile">
+        <img class="profile__ava" alt="Здесь должна быть аватарка, но могла быть и Ваша реклама! =)" src="./image/ava.jpg">
+        <div class="profile__data">
+          <div class="profile__name">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit"></button>
+          </div>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <button type="button" class="profile__add-button" aria-label="Добавить"></button>
+      </section >
+
+      <section class="elements">
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2021 Mesto Russia</p>
+    </footer>
+
+    <template id="template-card">
+      <article class="card">
+        <button type="button" class="card__in-trash"></button>
+        <img class="card__image" src="#" alt="Описание изображения">
+        <div class="card__caption">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+    </template>
+
+    <article class="popup popup_type_edit">
+      <div class="popup__content">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form action="#"
+        class="popup__form popup__form_type_profile"
+        name="popup-form"
+        autocomplete="off"
+        novalidate>
+
+          <section class="popup-input-section">
+
+            <input type="text"
+            placeholder="Имя Фамилия"
+            name="popup-input-profile-name"
+            class="popup__input popup__input_type_profile-name"
+            minlength="2"
+            maxlength="40"
+            required>
+
+            <span class="popup__error"></span>
+
+          </section>
+
+
+          <section class="popup-input-section">
+
+            <input type="text"
+            placeholder="Описание"
+            name="popup-input-profile-description"
+            class="popup__input popup__input_type_profile-description"
+            minlength="2"
+            maxlength="200"
+            required>
+
+            <span class="popup__error"></span>
+
+          </section>
+
+          <button type="submit" class="popup__save popup__save_edit" aria-label="Кнопка-Сохранить-Попап-Эдит">Сохранить</button>
+
+        </form>
+        <button type="button" class="popup__close popup__close_edit" aria-label="Кнопка-Закрыть-Попап-Эдит"></button>
       </div>
-      <button type="button" class="profile__add-button" aria-label="Добавить"></button>
-  </section >
+    </article>
 
-  <section class="elements">
+    <article class="popup popup_type_add">
+      <div class="popup__content">
 
-  </section>
+        <h2 class="popup__title">Новое место</h2>
 
-</main>
+        <form action="#"
+        class="popup__form popup__form_type_add"
+        name="popup-add"
+        autocomplete="off"
+        novalidate>
 
-<footer class="footer">
-  <p class="footer__copy">© 2021 Mesto Russia</p>
-</footer>
+          <section class="popup-input-section">
 
+            <input type="text"
+            name="popup-input-name"
+            placeholder="Название"
+            class="popup__input popup__input_type_name"
+            minlength="1"
+            maxlength="30"
+            required>
 
-<template id="template-card">
-  <article class="card">
-    <button type="button" class="card__in-trash"></button>
-    <img class="card__image" src="#" alt="Описание изображения">
-    <div class="card__caption">
-      <h2 class="card__title"></h2>
-      <button type="button" class="card__like"></button>
-    </div>
-  </article>
-</template>
+            <span class="popup__error"></span>
 
+          </section>
 
-<article class="popup popup_type_edit">
-  <div class="popup__content">
-    <h2 class="popup__title">Редактировать профиль</h2>
-    <form action="#"
-    class="popup__inputs popup__inputs_type_profile"
-    name="popup-inputs"
-    autocomplete="off"
-    novalidate>
+          <section class="popup-input-section">
 
-      <section class="popup-input-section">
+            <input type="url"
+            placeholder="Ссылка на картинку"
+            name="popup-input-url"
+            class="popup__input popup__input_type_url"
+            required>
 
-        <input type="text"
-        placeholder="Имя Фамилия"
-        name="popup-input-proftitle"
-        class="popup__input popup__input_type_proftitle"
-        minlength="2"
-        maxlength="40"
-        required>
+            <span class="popup__error"></span>
 
-        <span class="popup__error"></span>
+          </section>
 
-      </section>
+          <button type="submit" class="popup__save popup__save_add" aria-label="Кнопка-Создать-Карточку">Создать</button>
 
-      <section class="popup-input-section">
+        </form>
+        <button type="button" class="popup__close popup__close_add" aria-label="Кнопка-Закрыть-Попап-Эдд"></button>
+      </div>
+    </article>
 
-        <input type="text"
-        placeholder="Описание"
-        name="popup-input-profsubtitle"
-        class="popup__input popup__input_type_profsubtitle"
-        minlength="2"
-        maxlength="200"
-        required>
+    <article class="popup popup_type_picture">
+      <div class="popup__content-picture">
+        <img class="popup__picture-img" src="#" alt="#">
+        <p class="popup__picture-description"></p>
+        <button type="button" class="popup__close popup__close_picture" aria-label="Кнопка-Закрыть-Попап-Пикче"></button>
+      </div>
+    </article>
 
-        <span class="popup__error"></span>
+    <script src="./scripts/initial-cards.js"></script>
+    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
 
-      </section>
-
-      <button type="submit" class="popup__save popup__save_edit" aria-label="Кнопка-Сохранить-Попап-Эдит">Сохранить</button>
-
-    </form>
-    <button type="button" class="popup__close popup__close_edit" aria-label="Кнопка-Закрыть-Попап-Эдит"></button>
-  </div>
-</article>
-
-<article class="popup popup_type_add">
-  <div class="popup__content">
-
-    <h2 class="popup__title">Новое место</h2>
-
-    <form action="#"
-    class="popup__inputs popup__inputs_type_add"
-    name="popup-add"
-    autocomplete="off"
-    novalidate>
-
-      <section class="popup-input-section">
-
-        <input type="text"
-        name="popup-input-name"
-        placeholder="Название"
-        class="popup__input popup__input_type_name"
-        minlength="1"
-        maxlength="30"
-        required>
-
-        <span class="popup__error"></span>
-
-      </section>
-
-      <section class="popup-input-section">
-
-        <input type="url"
-        placeholder="Ссылка на картинку"
-        name="popup-input-url"
-        class="popup__input popup__input_type_url"
-        required>
-
-        <span class="popup__error"></span>
-
-      </section>
-
-      <button type="submit" class="popup__save popup__save_add" aria-label="Кнопка-Создать-Карточку">Создать</button>
-
-    </form>
-    <button type="button" class="popup__close popup__close_add" aria-label="Кнопка-Закрыть-Попап-Эдд"></button>
-  </div>
-</article>
-
-<article class="popup popup_type_picture">
-  <div class="popup__content-picture">
-    <img class="popup__picture-img" src="#" alt="#">
-    <p class="popup__picture-description"></p>
-    <button type="button" class="popup__close popup__close_picture" aria-label="Кнопка-Закрыть-Попап-Пикче"></button>
-  </div>
-</article>
-
-<script src="./scripts/initial-cards.js"></script>
-<script src="./scripts/validate.js"></script>
-<script src="./scripts/index.js"></script>
-
-</body>
+  </body>
 </html>
