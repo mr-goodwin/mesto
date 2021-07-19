@@ -22,13 +22,13 @@
   margin-bottom: 0;
 }
 
-.popup__input:invalid {
-  border-bottom: 1px solid red; /* красная рамка для некорректных данных */
-}
+/*.popup__input:invalid {
+  border-bottom: 1px solid red; /* красная рамка для некорректных данных
+}*/
 
-.popup__input:valid {
-  border-bottom: 1px solid green; /* зелёная - для корректных */
-}
+/* .popup__input:valid {
+  border-bottom: 1px solid green; /* зелёная - для корректных
+} */
 
 @media screen and (max-width: 780px) {
   .popup__input:last-of-type {
