@@ -51,16 +51,11 @@ const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
 };
 
 // установка слушателей событий для валидации
-const setEventListeners = (
-  formElement,
-  inputSelector,
-  submitButtonSelector,
-  config
-) => {
+const setEventListeners = (formElement, config) => {
   const handleFormSubmit = (evt) => evt.preventDefault(); // стандартное навешивание слушателя нажатия 'SUBMIT' (убираем стандартное поведение при нажатии)
   formElement.addEventListener("submit", handleFormSubmit);
-  const inputList = Array.from(formElement.querySelectorAll(inputSelector)); // находим внутри формы все инпуты и делаем из них массив
-  const buttonElement = formElement.querySelector(submitButtonSelector); // находим кнопку сохранения
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector)); // находим внутри формы все инпуты и делаем из них массив
+  const buttonElement = formElement.querySelector(config.submitButtonSelector); // находим кнопку сохранения
   const inputListIterator = (inputElement) => {
     const handleInput = () => {
       checkInputValidity(formElement, inputElement, config);
@@ -73,15 +68,11 @@ const setEventListeners = (
 };
 
 // находим все формы, превращаем их в массив, после чего перебираем его и убиваем дефолтное поведение при нажатии (отправке)
-const enableValidation = ({
-  formSelector,
-  inputSelector,
-  submitButtonSelector
-}) => {
-  const formElements = document.querySelectorAll(formSelector);
+const enableValidation = (config) => {
+  const formElements = document.querySelectorAll(config.formSelector);
   const formList = Array.from(formElements);
   formList.forEach((formElement) => {
-    setEventListeners(formElement, inputSelector, submitButtonSelector, config);
+    setEventListeners(formElement, config);
   });
 };
 
