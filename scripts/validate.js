@@ -1,12 +1,14 @@
+
+
 const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__save_add_invalid",
-  inputErrorClass: ".popup__error",
-  errorClass: "popup__error_active",
-  inputInvalidClass: "popup__input_invalid",
-  popupInputSectionSelector: ".popup-input-section"
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_add_invalid',
+  inputErrorClass: '.popup__error',
+  errorClass: 'popup__error_active',
+  inputInvalidClass: 'popup__input_invalid',
+  popupInputSectionSelector: '.popup-input-section'
 }
 
 // отобразить инпут ERORR
@@ -22,7 +24,7 @@ const showInputError = (inputElement, errorMessage, config) => {
 const hideInputError = (inputElement, config) => {
   const formSectionElement = inputElement.closest(config.popupInputSectionSelector);
   const errorElement = formSectionElement.querySelector(config.inputErrorClass);
-  errorElement.textContent = "";
+  errorElement.textContent = '';
   errorElement.classList.remove(config.errorClass);
   inputElement.classList.remove(config.inputInvalidClass);
 };
@@ -42,10 +44,10 @@ const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   const findAtLeastOneInvalid = (inputElement) => !inputElement.validity.valid;
   const hasInvalidInput = inputList.some(findAtLeastOneInvalid);
   if (hasInvalidInput) {
-    buttonElement.setAttribute("disabled", true);
+    buttonElement.setAttribute('disabled', true);
     buttonElement.classList.add(inactiveButtonClass);
   } else {
-    buttonElement.removeAttribute("disabled");
+    buttonElement.removeAttribute('disabled');
     buttonElement.classList.remove(inactiveButtonClass);
   }
 };
@@ -53,7 +55,7 @@ const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
 // установка слушателей событий для валидации
 const setEventListeners = (formElement, config) => {
   const handleFormSubmit = (evt) => evt.preventDefault(); // стандартное навешивание слушателя нажатия 'SUBMIT' (убираем стандартное поведение при нажатии)
-  formElement.addEventListener("submit", handleFormSubmit);
+  formElement.addEventListener('submit', handleFormSubmit);
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector)); // находим внутри формы все инпуты и делаем из них массив
   const buttonElement = formElement.querySelector(config.submitButtonSelector); // находим кнопку сохранения
   const inputListIterator = (inputElement) => {
@@ -61,7 +63,7 @@ const setEventListeners = (formElement, config) => {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement);
     };
-    inputElement.addEventListener("input", handleInput);
+    inputElement.addEventListener('input', handleInput);
   };
   inputList.forEach(inputListIterator); // проходимся по каждому элементу и навешиваем на каждый из них слушатель 'input'
   toggleButtonState(inputList, buttonElement);
