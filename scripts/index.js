@@ -4,7 +4,7 @@ import {
   configEditProfile,
   configAddCard,
   configFullPicture,
-} from "./initial-cards.js";
+} from "./constant.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -47,11 +47,17 @@ function handlePreviewPicture(name, link) {
 // рендер CARD после создания классов
 initialCards.forEach((item) => { /// переберём массив по одному элементу
   // Создадим экземпляр карточки
-  const card = new Card(item, "#template-card", handlePreviewPicture); /// в каждый экземпляр карточки передадим аргументы из текущего элемента массива
-  const cardElement = card.createCard(); /// применим к полученному конструктору функцию создания карточки с выводом результата наружу
+  //const card = new Card(item, "#template-card", handlePreviewPicture); /// в каждый экземпляр карточки передадим аргументы из текущего элемента массива
+  //const cardElement = card.createCard(); /// применим к полученному конструктору функцию создания карточки с выводом результата наружу
   // Добавляем в DOM (в конец элемента)
-  configAddCard.elementsContainer.append(cardElement);
+  configAddCard.elementsContainer.append(createCard(item));
 });
+
+function createCard(cardDataParam) {
+  const card = new Card(cardDataParam, "#template-card", handlePreviewPicture);
+  const cardElement = card.createCard();
+  return cardElement;
+}
 
 // функция создания новой карточки
 function handleAddCard(evt) {
@@ -62,11 +68,11 @@ function handleAddCard(evt) {
     name: name,
     link: imageSrc,
   };
-  const card = new Card(cardData, "#template-card", handlePreviewPicture);
-  const cardElement = card.createCard();
-  configAddCard.elementsContainer.prepend(cardElement); // Добавляем в DOM (в начало элемента)
+  //const card = new Card(cardData, "#template-card", handlePreviewPicture);
+  //const cardElement = card.createCard();
+  configAddCard.elementsContainer.prepend(createCard(cardData)); // Добавляем в DOM (в начало элемента)
   configAddCard.popupFormAdd.reset();
-  configAddCard.buttonSaveAddNewCard.setAttribute("disabled", true);
+  //configAddCard.buttonSaveAddNewCard.setAttribute("disabled", true);
   closePopup(configAddCard.popupAdd);
 }
 
@@ -74,6 +80,8 @@ function handleAddCard(evt) {
 function closePopupKeyEsc(evt) {
   if (evt.key === "Escape") {
     const popupEsc = document.querySelector(".popup_opened");
+    validationPopupAdd.resetValidation();
+    validationPopupEdit.resetValidation();
     closePopup(popupEsc);
   }
 }
@@ -81,6 +89,8 @@ function closePopupKeyEsc(evt) {
 // функция закрытия попап по нажатию на оверлей
 function closePopupOverlay(evt) {
   if (evt.target.classList.contains("popup")) {
+    validationPopupAdd.resetValidation();
+    validationPopupEdit.resetValidation();
     closePopup(evt.target);
   }
 }
@@ -103,8 +113,11 @@ configEditProfile.buttonEditProfileOnMainPage.addEventListener(
   editProfileData
 );
 
-configEditProfile.buttonClosePopupEdit.addEventListener("click", () =>
-  closePopup(configEditProfile.popupEdit)
+configEditProfile.buttonClosePopupEdit.addEventListener("click", () => {
+    closePopup(configEditProfile.popupEdit);
+    validationPopupEdit.resetValidation();
+  }
+  
 );
 
 configEditProfile.popupFormEditProfile.addEventListener(
@@ -116,8 +129,11 @@ configAddCard.buttonAddOnMainPage.addEventListener("click", () =>
   openPopup(configAddCard.popupAdd)
 );
 
-configAddCard.buttonClosePopupAdd.addEventListener("click", () =>
-  closePopup(configAddCard.popupAdd)
+configAddCard.buttonClosePopupAdd.addEventListener("click", () => {
+    closePopup(configAddCard.popupAdd);
+    validationPopupAdd.resetValidation();
+  }
+  
 );
 
 configAddCard.popupFormAdd.addEventListener("submit", handleAddCard);
@@ -138,3 +154,4 @@ const validationPopupAdd = new FormValidator(
 
 validationPopupEdit.enableValidation();
 validationPopupAdd.enableValidation();
+validationPopupAdd.toggleButtonState();

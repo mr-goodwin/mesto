@@ -46,6 +46,13 @@ class FormValidator {
     });
   }
 
+  resetValidation() {
+    this.toggleButtonState(); // управляем кнопкой
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement) // очищаем ошибки
+    });
+  }
+
   // переключатель состояния кнопки в зависимости от состояния валидности полей формы
   toggleButtonState() {
     if (this._hasInvalidInput()) {
@@ -58,11 +65,10 @@ class FormValidator {
   }
 
   // установка слушателей событий для валидации
-  _setEventListeners(formElement) {
+  _setEventListeners() {
     this.toggleButtonState();
-
     const handleFormSubmit = (evt) => evt.preventDefault(); // стандартное навешивание слушателя нажатия 'SUBMIT' (убираем стандартное поведение при нажатии)
-    formElement.addEventListener('submit', handleFormSubmit);
+    this._formElement.addEventListener('submit', handleFormSubmit);
     // const buttonElement = formElement.querySelector(configValadate.submitButtonSelector); // находим кнопку сохранения
     const inputListIterator = (inputElement) => {
       const handleInput = () => {
@@ -75,16 +81,9 @@ class FormValidator {
     this.toggleButtonState();
   }
 
-  // находим все формы, превращаем их в массив, после чего перебираем его и убиваем дефолтное поведение при нажатии (отправке)
+  // инициируем валидацию навешиванием слушателей на указанный элемент формы
   enableValidation() {
-    const formElements = document.querySelectorAll(
-      this._formSelector
-    );
-    const formList = Array.from(formElements);
-    formList.forEach((formElement) => {
-      this._setEventListeners(formElement, this.configValadate);
-    });
-    //this.enableValidation(); НЕ НУЖНО ТУТ ВЫЗЫВАТЬ!!!
+      this._setEventListeners();
   }
 }
 
