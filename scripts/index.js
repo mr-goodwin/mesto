@@ -27,6 +27,8 @@ function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupKeyEsc);
   document.addEventListener("click", closePopupOverlay);
+  validationPopupEdit.resetValidation();
+  validationPopupAdd.resetValidation();
 }
 
 // универсальная функция закрытия попапа (с удалением слушателей с документа)
@@ -44,12 +46,8 @@ function handlePreviewPicture(name, link) {
   openPopup(configFullPicture.popupImg);
 }
 
-// рендер CARD после создания классов
-initialCards.forEach((item) => { /// переберём массив по одному элементу
-  // Создадим экземпляр карточки
-  //const card = new Card(item, "#template-card", handlePreviewPicture); /// в каждый экземпляр карточки передадим аргументы из текущего элемента массива
-  //const cardElement = card.createCard(); /// применим к полученному конструктору функцию создания карточки с выводом результата наружу
-  // Добавляем в DOM (в конец элемента)
+// добавление CARD в DOM после создания классов
+initialCards.forEach((item) => {
   configAddCard.elementsContainer.append(createCard(item));
 });
 
@@ -68,11 +66,9 @@ function handleAddCard(evt) {
     name: name,
     link: imageSrc,
   };
-  //const card = new Card(cardData, "#template-card", handlePreviewPicture);
-  //const cardElement = card.createCard();
   configAddCard.elementsContainer.prepend(createCard(cardData)); // Добавляем в DOM (в начало элемента)
   configAddCard.popupFormAdd.reset();
-  //configAddCard.buttonSaveAddNewCard.setAttribute("disabled", true);
+  validationPopupAdd.resetValidation();
   closePopup(configAddCard.popupAdd);
 }
 
@@ -80,8 +76,6 @@ function handleAddCard(evt) {
 function closePopupKeyEsc(evt) {
   if (evt.key === "Escape") {
     const popupEsc = document.querySelector(".popup_opened");
-    validationPopupAdd.resetValidation();
-    validationPopupEdit.resetValidation();
     closePopup(popupEsc);
   }
 }
@@ -89,8 +83,6 @@ function closePopupKeyEsc(evt) {
 // функция закрытия попап по нажатию на оверлей
 function closePopupOverlay(evt) {
   if (evt.target.classList.contains("popup")) {
-    validationPopupAdd.resetValidation();
-    validationPopupEdit.resetValidation();
     closePopup(evt.target);
   }
 }
@@ -113,11 +105,8 @@ configEditProfile.buttonEditProfileOnMainPage.addEventListener(
   editProfileData
 );
 
-configEditProfile.buttonClosePopupEdit.addEventListener("click", () => {
-    closePopup(configEditProfile.popupEdit);
-    validationPopupEdit.resetValidation();
-  }
-  
+configEditProfile.buttonClosePopupEdit.addEventListener("click", () =>
+  closePopup(configEditProfile.popupEdit)
 );
 
 configEditProfile.popupFormEditProfile.addEventListener(
@@ -130,11 +119,8 @@ configAddCard.buttonAddOnMainPage.addEventListener("click", () =>
 );
 
 configAddCard.buttonClosePopupAdd.addEventListener("click", () => {
-    closePopup(configAddCard.popupAdd);
-    validationPopupAdd.resetValidation();
-  }
-  
-);
+  closePopup(configAddCard.popupAdd);
+});
 
 configAddCard.popupFormAdd.addEventListener("submit", handleAddCard);
 
