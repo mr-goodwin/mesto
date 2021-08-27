@@ -14,7 +14,7 @@ import { FormValidator } from "./FormValidator.js";
 
 // функция обработки профиля редактирования
 function handleEditProfile(evt) {
-  evt.preventDefault();
+  evt.preventDefault();  
   configEditProfile.titleProfileOnMainPage.textContent =
     configEditProfile.inputInPopupProfileName.value;
   configEditProfile.subtitleProfileOnMainPage.textContent =
@@ -27,8 +27,6 @@ function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupKeyEsc);
   document.addEventListener("click", closePopupOverlay);
-  validationPopupEdit.resetValidation();
-  validationPopupAdd.resetValidation();
 }
 
 // универсальная функция закрытия попапа (с удалением слушателей с документа)
@@ -60,6 +58,7 @@ function createCard(cardDataParam) {
 // функция создания новой карточки
 function handleAddCard(evt) {
   evt.preventDefault();
+  validationPopupAdd.resetValidation();
   const name = configAddCard.cardNameInput.value;
   const imageSrc = configAddCard.cardLinkInput.value;
   const cardData = {
@@ -94,6 +93,7 @@ function editProfileData() {
   configEditProfile.inputInPopupProfileDescription.value =
     configEditProfile.subtitleProfileOnMainPage.textContent;
   openPopup(configEditProfile.popupEdit);
+  validationPopupEdit.resetValidation();
 }
 
 //-------------------------------------------------------------------------------------------
@@ -101,8 +101,11 @@ function editProfileData() {
 //-------------------------------------------------------------------------------------------
 
 configEditProfile.buttonEditProfileOnMainPage.addEventListener(
-  "click",
-  editProfileData
+  "click", () => {
+    editProfileData();
+    validationPopupEdit.resetValidation();
+  }
+  
 );
 
 configEditProfile.buttonClosePopupEdit.addEventListener("click", () =>
@@ -114,8 +117,10 @@ configEditProfile.popupFormEditProfile.addEventListener(
   handleEditProfile
 );
 
-configAddCard.buttonAddOnMainPage.addEventListener("click", () =>
-  openPopup(configAddCard.popupAdd)
+configAddCard.buttonAddOnMainPage.addEventListener("click", () => {
+    openPopup(configAddCard.popupAdd);  
+    validationPopupAdd.resetValidation();
+  }  
 );
 
 configAddCard.buttonClosePopupAdd.addEventListener("click", () => {
